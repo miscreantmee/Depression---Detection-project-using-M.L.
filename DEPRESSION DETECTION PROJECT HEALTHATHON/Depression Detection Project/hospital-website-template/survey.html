@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Save Web Form Data to Spreadsheets - Contact Form</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/Ts1eHY58svbMgGZV/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)")
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+</script>
+</head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>survey-form</title>
+</head>
+<body>
+<div id="container">
+  <header id="header">
+    <h1 id="title" class="text-center bold">Mental Health Survey Form</h1>
+    <p id="description" class="description text-center">This is a survey for Mental Health.</p>
+  </header>
+  <main id="survey-form">
+    <form id="myForm">
+      <div class="form-group">
+        <label id="name-label" class="bold">Name</label>
+        <input id="name" type="text" name="Fullname" class="form-control" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label id="email-label" class="bold">Email</label>
+        <input id="email" type="email" name="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label id="number-label" class="bold">Age<span class="clue">(optional)</span></label>
+        <input id="number" type="number" name="age" min="10" max="99" class="form-control" placeholder="Age">
+      </div>
+      <div class="form-group">
+        <label id="number-label" class="bold">Married Status<span class="clue">(optional)</span></label>
+        <input id="number" type="text" name="Married Status" min="10" max="99" class="form-control" placeholder="">
+      </div>
+
+        <div class="form-group">
+          <label id="name-label" class="bold">Family members </label>
+          <input id="name" type="text" name="Family members" class="form-control" placeholder="No of person in family" required>
+        </div>
+        <div class="form-group">
+          <p class="bold" style="text-align: left;">Job Status</p>
+          <select id="dropdown" name="Job Status" class="form-control" required>
+            <option disabled selected value>Select current role</option>
+            <option value="face to face">Employed </option>
+            <option value="face to face">UN Employed </option>
+            <option value="other">Other<span class="clue">(Enter the Annual salery)</span></option>
+          </select>
+        </div>
+        
+
+            
+
+        <div class="form-group">
+          <p class="bold" style="text-align: left;">Which option you want to Choose.</p>
+          <select id="dropdown" name="Role" class="form-control" required>
+            <option disabled selected value>Select current role</option>
+            <option value="face to face">Face To Face interaction </option>
+            <option value="visual">Visual interaction </option>
+            <option value="interaction">Voice interaction</option>
+            <option value="chat">Chat Box</option>
+            
+            <option value="other">Other<span class="clue">(Describe in comment box)</span></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p class="bold" style="text-align: left;"> Plans available </p>
+          <label>
+            <input name="Plan Taken" value="not-sure" type="radio" class="input-radio" />  $0 one Month Free Trial For New Users.
+          </label>
+          <label>
+            <input name="Plan Taken" value="not-sure" type="radio" class="input-radio" />$2 - $5       2 months subscritpion plan 
+          </label>
+          <label>
+            <input name="Plan Taken" value="not-sure" type="radio" class="input-radio" />$15 - $20      5 months subscritpion plan 
+          </label>
+          <label>
+            <input name="Plan Taken" value="not-sure" type="radio" class="input-radio" /> $20 - $30     10 months subscritpion plan 
+          </label>
+          
+        </div>
+        
+        <div class="form-group">
+          <p class="bold">Additional information/Comments or Suggestions</p>
+          <textarea id="comments" class="input-textarea" name="Query"
+            placeholder="Enter your comment here..."></textarea>
+        </div>
+        <div class="form-group">
+        </div>
+    </form>
+  </main>
+</div>
+<button onclick="SubForm()">
+  Submit
+</button>
+</body>
+</html>
